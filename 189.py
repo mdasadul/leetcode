@@ -10,3 +10,6 @@ class Solution(object):
         k = k%l
         if k>0:
             nums[:] =nums[-k:]+nums[:-k]
+
+    
+
