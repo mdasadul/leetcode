@@ -13,10 +13,18 @@
 class Solution:
     
     def inorderTraversal(self, root: TreeNode) -> List[int]:
-        
-        if root: 
-            return self.inorderTraversal(root.left)+\
-            [root.val]+ \
-            self.inorderTraversal(root.right)
-        else:
-            return []
+        stack =[]
+        ret =[]
+        while True:
+            while(root):
+                stack.append(root)
+                root = root.left
+            
+            if stack==[]: return ret  
+            root = stack.pop()
+            ret.append(root.val)
+            root = root.right  
+                      
+            
+        return ret
+
