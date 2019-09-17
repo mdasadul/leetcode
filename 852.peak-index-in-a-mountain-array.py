@@ -5,8 +5,16 @@
 #
 class Solution:
     def peakIndexInMountainArray(self, A: List[int]) -> int:
-        for index, item in enumerate(A[1:],1):
-            if A[index-1]>item:
-                return index-1
+        left =0
+        right = len(A)
+        while left < right:
+            mid = left +(right-left)//2
+            if (A[mid]<A[mid+1]):
+                left = mid+1
+            else:
+                right = mid
+        return left
+
+                
         
             
