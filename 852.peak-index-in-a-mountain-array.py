@@ -5,5 +5,8 @@
 #
 class Solution:
     def peakIndexInMountainArray(self, A: List[int]) -> int:
-        return A.index(max(A))
+        for index, item in enumerate(A[1:],1):
+            if A[index-1]>item:
+                return index-1
+        
             
