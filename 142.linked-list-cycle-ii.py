@@ -11,10 +11,8 @@
 
 class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
-        if not head: return None
-        
         while head: 
-            head.val = [head.val,None]
+            head.val = [head.val]
             head = head.next
             if head and type(head.val) is list:
                 break
