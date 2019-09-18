@@ -11,13 +11,16 @@
 
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
-        if not head: return False
-        p=head
-        q = p.next
-        while p!=q: 
-            p = p.next
-            q = q.next.next if q and q.next else None
-        return True if q and p==q else False
+        d ={}
+        while head: 
+            if head not in d:
+                d[head] = 1 
+            else:
+                return True
+            head = head.next
+        return False
+    
+    
 
 
 
