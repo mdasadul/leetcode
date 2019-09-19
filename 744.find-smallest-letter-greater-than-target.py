@@ -6,9 +6,16 @@
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
        
-        for item in letters:
-            if item>target:
-                return item
-        if item ==letters[-1]:
-            return letters[0]       
+        l=0
+        h = len(letters)-1 
+        while(l<=h):
+            mid = (l+h)>>1#l+(h-l)//2 
+            if target>=letters[mid]:
+                l = mid + 1 
+            else:
+                h = mid -1 
+        if l<len(letters):
+            return letters[l]
+        else:
+            return letters[0]
 
