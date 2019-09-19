@@ -8,18 +8,11 @@ class Solution:
         n = len(nums)
         l, h = 0, n-1 
         while(l <=h):
-            m = (l+h)>>1 
-            if target ==nums[m]:
-                return m
-            elif target > nums[m]:
-                l = m + 1
+            if target ==nums[l]+nums[h]:
+                return [l+1,h+1]
+            elif target > nums[l]+nums[h]:
+                l = l+1
             else:
-                h = m - 1
-        return -1
+                h = h - 1
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        for index in range(len(numbers)-1,0,-1):
-            new_target = target - numbers[index]
-            next_index = self.binary_search(numbers[:index], new_target)
-            if next_index >= 0:
-                return [ next_index+1,index + 1,]
-            
+            return self.binary_search(numbers, target)
