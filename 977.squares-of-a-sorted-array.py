@@ -5,8 +5,5 @@
 #
 class Solution:
     def sortedSquares(self, A: List[int]) -> List[int]:
-        ret =[]
-        for item in A:
-            ret.append(item**2)
-        return sorted(ret)
+        return sorted([item**2 for item in A ])
 
