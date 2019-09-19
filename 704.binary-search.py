@@ -9,7 +9,7 @@ class Solution:
         n = len(nums)
         h = n-1
         while(l<=h):
-            m = (l+h)>>1
+            m = l + (h-l)//2
             if target == nums[m]:
                 return m
             elif target > nums[m]:
