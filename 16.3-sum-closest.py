@@ -1,6 +1,6 @@
 import bisect
 class Solution:
-    def threeSumClosest(self, nums: List[int], target: int):
+    def threeSumClosest(self, nums, target):
         nums.sort()
         array = []
         min_val = float('inf')
@@ -12,10 +12,12 @@ class Solution:
             r = len(nums)-1
             while r>l:
                 t = nums[i]+nums[l]+ nums[r]
+                # print(nums[i],nums[l],nums[r])
+                # print(t, min_val)
                 if abs(target-t) < min_val:                   
-                   
-                   min_val = abs(target-t)
-                   h = t
+                    
+                    min_val = abs(target-t)
+                    h = t
                 
                 
                 if abs(target - (nums[i]+nums[l+1]+ nums[r]))< abs(target - (nums[i]+nums[l]+ nums[r-1])):
