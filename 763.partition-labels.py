@@ -14,18 +14,23 @@ class Solution:
             if S[i:][::-1].find(S[i]) >-1:
                 j=len(S)-S[i:][::-1].index(S[i])
                 
-                part = S[i:j]
+                part = set(S[i:j])
                 i=j
                 j = 0
-                
-                
                 p=0
+                vv=''
                 for item in S[i:]:
+                    #print(item)
                     if item not in part:
-                       p +=1 
+                        vv +=item 
+                        p +=1
+                        
                     else:
-                        j +=1+p
-                        p = 0
+                        for ii in vv:
+                            part.add(ii)
+                        j+=p+1
+                        p=0
+                      
                 i+=j 
                 
                 ret.append(i-k)
