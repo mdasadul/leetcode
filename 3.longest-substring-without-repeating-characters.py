@@ -1,8 +1,3 @@
-#
-# @lc app=leetcode id=1143 lang=python3
-#
-# [1143] Longest Common Subsequence
-#
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         if s=='': return 0
