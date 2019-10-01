@@ -11,15 +11,31 @@
 
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        head = node = ListNode(None)
+        head = None
+        forward = None
+        if l1==None and l2==None:
+            return 
         while l1 and l2:
+            node = ListNode(None)
             if l1.val > l2.val:
                 node.val = l2.val
-                list1.append(l2.val)
                 l2 = l2.next
             else:
-                list1.append(l1.val)
+                node.val =l1.val
                 l1 = l1.next
+            if head==None:
+                head = node
+                forward = node
+            else:
+                forward.next = node
+                forward = node
+        h = l1 or l2
+        if forward:
+            forward.next =h
+        else:
+            head = h
+        return head
+                
             
         
         
