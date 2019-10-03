@@ -11,6 +11,17 @@
 #         self.right = None
 
 class Solution:
-    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
-        
+    def hasPathSum(self, root: TreeNode, sum_: int) -> bool:
+        if not root: return False
+        queue = [(root, [root.val])]
+        while queue:
+            node, path = queue.pop()
+            if node.left:
+                queue.append((node.left, path+[node.left.val]))
+            if node.right:
+                queue.append((node.right, path+[node.right.val]))
+            if not node.left and not node.right:
+                if sum_==sum(path):
+                    return True
+        return False
 
