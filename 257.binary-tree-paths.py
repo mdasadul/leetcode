@@ -3,6 +3,11 @@
 #
 # [257] Binary Tree Paths
 #
+<<<<<<< HEAD
+
+# @lc code=start
+=======
+>>>>>>> 42b56087952ad9838520cfc3e74f777d350d2232
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
