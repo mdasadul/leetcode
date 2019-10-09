@@ -12,12 +12,12 @@ class Solution:
         l = len(nums2)
         for item in nums1:
             index = h[item]
-            ii = index+1
-            while   l>ii:
-                if nums2[ii]>item:
-                        ret.append(nums2[ii])
+            next_index = index+1
+            while   next_index < l:
+                if nums2[next_index]>item:
+                        ret.append(nums2[next_index])
                         break
-                ii +=1
+                next_index +=1
             else:
                 ret.append(-1)
         return ret
