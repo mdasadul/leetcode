@@ -1,7 +1,7 @@
 #
-# @lc app=leetcode id=112 lang=python3
+# @lc app=leetcode id=113 lang=python3
 #
-# [112] Path Sum
+# [113] Path Sum II
 #
 # Definition for a binary tree node.
 # class TreeNode:
@@ -11,9 +11,10 @@
 #         self.right = None
 
 class Solution:
-    def hasPathSum(self, root: TreeNode, sum_: int) -> bool:
-        if not root: return False
+    def pathSum(self, root: TreeNode, sum_: int) -> List[List[int]]:
+        if not root: return []
         queue = [(root, [root.val])]
+        paths =[]
         while queue:
             node, path = queue.pop()
             if node.left:
@@ -22,6 +23,7 @@ class Solution:
                 queue.append((node.right, path+[node.right.val]))
             if not node.left and not node.right:
                 if sum_==sum(path):
-                    return True
-        return False
+                    paths.append(path)
+        return paths
+
 

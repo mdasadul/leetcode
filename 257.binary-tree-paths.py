@@ -3,8 +3,11 @@
 #
 # [257] Binary Tree Paths
 #
+<<<<<<< HEAD
 
 # @lc code=start
+=======
+>>>>>>> 42b56087952ad9838520cfc3e74f777d350d2232
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -14,40 +17,19 @@
 
 class Solution:
     def binaryTreePaths(self, root: TreeNode) -> List[str]:
-        queue = [root]
-        path = []
-        
-        dict_arr ={}
-        i=1
-        while(len(queue) > 0):
-            node = queue.pop()
-            dict_arr[i]=node
-            if  node.left and node.right:
-                queue.append(node.right)
-                queue.append(node.left)
-                dict_arr[2*i] = node.left
-                dict_arr[2*i+1] = node.right
-            elif node.left :
-                queue.append(node.left)
-                dict_arr[2*i] = node.left
-                dict_arr[2*i+1] = None
-            elif node.right:
-                queue.append(node.right)
-                dict_arr[2*i+1] = node.right
-                dict_arr[2*i] = None
-            else:
-                dict_arr[2*i+1] = None
-                dict_arr[2*i] = None
-            i +=1 
-        print(dict_arr)  
-        j=i
-        for i in range(1,i+1):
-            if dict_arr[i]!=None and  dict_arr[2*i]==None and dict_arr[2*i+1]==None: 
-                paths.append('->'.join([str(dict_arr[i].val) if dict_arr[i].val is not None for j range(i+1)]))
-                dict_arr[i]=None
-            i = i+1
-        print(paths)
+        if root==None: return []
+        queue = [(root,[str(root.val)])]
+        paths = []
+        while len(queue)>0:
             
-                
-# @lc code=end
+            node, path = queue.pop()
+            #print(path)
+            if node.right:
+                queue.append((node.right, path+[str(node.right.val)]))
+         
+            if node.left:
+                queue.append((node.left,path+[str(node.left.val)]))
+            if not node.left and not node.right:
+                paths.append('->'.join(path))
+        return paths        
 
